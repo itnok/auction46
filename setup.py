@@ -32,6 +32,7 @@ PLIST = {
 }
 OPTIONS = {
     "argv_emulation": False,
+    "iconfile": "asset/app_icon.icns",
     "plist": PLIST
 }
 
