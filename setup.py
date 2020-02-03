@@ -10,16 +10,18 @@ Usage:
 
 from setuptools import setup
 
+from app_info import About
+
 APP = ["auction46.py"]
 DATA_FILES = [
     "asset/pdf-drop-target.png"
 ]
 PLIST = {
-    "CFBundleName": "Auction46",
-    "CFBundleShortVersionString": "1.0.0",
-    "CFBundleVersion": "1.0.0",
-    "CFBundleIdentifier": "com.itnok.auction46",
-    "NSHumanReadableCopyright": "© 2020 Simone Conti. All Rights Reserved.",
+    "CFBundleName": About.GetAppName(),
+    "CFBundleShortVersionString": About.GetAppVersion(),
+    "CFBundleVersion": About.GetAppVersion(),
+    "CFBundleIdentifier": About.GetAppBundleStr(),
+    "NSHumanReadableCopyright": About.GetAppCopyright(),
     "CFBundleDocumentTypes": [
         {
             "CFBundleTypeExtensions": [

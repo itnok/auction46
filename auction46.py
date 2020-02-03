@@ -7,6 +7,7 @@ import sys
 import csv
 import time
 import math
+import wx.adv
 import PyPDF4
 import platform
 import darkdetect
@@ -14,6 +15,7 @@ import darkdetect
 from typing import List
 from threading import Thread
 from pubsub import pub
+from app_info import About
 
 
 class PDFdoc:
@@ -200,6 +202,14 @@ class Auction46Frame(wx.Frame):
         self.Bind(wx.EVT_MENU, self.OnOpen, item)
         self.menubar.Append(menu_file, "&File")
 
+        menu_help = wx.Menu()
+
+        # this gets put in the App menu on macOS
+        item = menu_help.Append(wx.ID_ABOUT, f"&About {About.GetAppName()}",
+                                f"More information About {About.GetAppName()}")
+        self.Bind(wx.EVT_MENU, self.OnAbout, item)
+        self.menubar.Append(menu_help, "&Help")
+
         self.SetMenuBar(self.menubar)
 
         self.panel = CenteredImageDropPanel(self, os.path.join(
@@ -217,6 +227,13 @@ class Auction46Frame(wx.Frame):
     def OnQuit(self, event):
         self.Close()
         wx.GetApp().ExitMainLoop()
+
+    def OnAbout(self, event):
+        info = wx.adv.AboutDialogInfo()
+        info.Name = About.GetAppName()
+        info.Version = About.GetAppVersion()
+        info.Copyright = About.GetAppCopyright()
+        wx.adv.AboutBox(info)
 
     def doExtractData(self, filenames: List[str] = list()):
         if filenames:
