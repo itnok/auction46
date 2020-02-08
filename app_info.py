@@ -7,7 +7,7 @@ This is a collection of useful details about the app
 
 _INFO = {
     "name": "Auction46",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "bundle": "com.itnok.",
     "copyright": "© 2020 Simone Conti. All Rights Reserved.",
 }
