@@ -1,5 +1,5 @@
 autopep8==1.5
-numpy==1.18.1
+numpy==1.22.0
 Pillow==7.0.0
 pycodestyle==2.5.0
 PyPDF4==1.27.0
